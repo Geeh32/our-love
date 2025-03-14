@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz 1 ano nosso! <3</title>
+    <Style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin: 0;
+    background-color: rgba(173, 86, 255, 0.855);
+}
+
+.painel {
+    width: 350px;  /* Tamanho do painel */
+    height: 700px; /* Altura do painel */
+    margin: 0 auto; /* Centralizar painel na página */
+    background-color: #fff; /* Cor de fundo do painel */
+    padding: 20px; /* Espaçamento interno */
+    display: flex;
+    justify-content: center; /* Centralizar horizontalmente */
+    align-items: center; /* Centralizar verticalmente */
+    padding-top: 50px;
+    border-radius: 20px; /* Bordas arredondadas */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(6, 50px); /* 6 colunas */
+    grid-template-rows: repeat(6, 50px);    /* 6 linhas */
+    gap: 2px;
+    position: relative;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.puzzle-piece {
+    width: 50px;
+    height: 50px;
+    background-image: url('300x300.png'); /* Caminho para a sua imagem */
+    background-size: 300px 300px; /* Tamanho da imagem original */
+    border: 1px solid #000;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+}
+
+#emb{
+    display: none;
+    position: absolute;
+    height: 40px;
+    width: 300px;
+    background-color: rgba(173, 86, 255, 0.855);
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    margin-left: 10px;
+    margin-top: 500px;
+}
+
+#ver{
+            position: absolute;
+            height: 40px;
+            width: 300px;
+            background-color: rgba(173, 86, 255, 0.855);
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: 10px;
+            margin-top: 400px;
+        }
+
+        #novoBotao {
+            display: none;
+            position: absolute;
+            height: 40px;
+            width: 300px;
+            background-color: rgba(204, 0, 255, 0.855);
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: -305px;
+            margin-top: 275px;
+        
+        }
+
+#text{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position: absolute;
+            border-radius: 10px;
+            color: rgb(0, 0, 0);
+            margin-top: -500px;
+            
+        }
+
+        #text02{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position: absolute;
+            border-radius: 10px;
+            color: rgb(0, 0, 0);
+            margin-top: -400px;
+            
+        }
+
+
+button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Definindo o corte da imagem para cada peça */
+#piece1 { background-position: 0px 0px; }
+#piece2 { background-position: -50px 0px; }
+#piece3 { background-position: -100px 0px; }
+#piece4 { background-position: -150px 0px; }
+#piece5 { background-position: -300px 0px; }
+#piece6 { background-position: -350px 0px; }
+#piece7 { background-position: -400px -50px; }
+#piece8 { background-position: -450px -50px; }
+#piece9 { background-position: -500px -50px; }
+#piece10 { background-position: -550px -50px; }
+#piece11 { background-position: -600px -50px; }
+#piece12 { background-position: -650px -50px; }
+#piece13 { background-position: -700px -100px; }
+#piece14 { background-position: -750px -100px; }
+#piece15 { background-position: -800px -100px; }
+#piece16 { background-position: -850px -100px; }
+#piece17 { background-position: -900px -100px; }
+#piece18 { background-position: -950px -100px; }
+#piece19 { background-position: -1000px -150px; }
+#piece20 { background-position: -1050px -150px; }
+#piece21 { background-position: -1100px -150px; }
+#piece22 { background-position: -1150px -150px; }
+#piece23 { background-position: -1200px -150px; }
+#piece24 { background-position: -1250px -150px; }
+#piece25 { background-position: -1300px -300px; }
+#piece26 { background-position: -1350px -300px; }
+#piece27 { background-position: -1400px -300px; }
+#piece28 { background-position: -1450px -300px; }
+#piece29 { background-position: -1500px -300px; }
+#piece30 { background-position: -1550px -300px; }
+#piece31 { background-position: -1600px -350px; }
+#piece32 { background-position: -1650px -350px; }
+#piece33 { background-position: -1700px -350px; }
+#piece34 { background-position: -1750px -350px; }
+#piece35 { background-position: -1800px -350px; }
+#piece36 { background-position: -1850px -350px; }
+
+/* Adicionar mais peças, até o total de 36, ajustando a posição de fundo */
+
+
+    </Style>
+</head>
+<body>
+    
+    <div class="painel">
+    <h1 id="text">Ainda não acabou...</h1>
+    <h2 id="text02">Agora é nosso puzzle favorito!</h2>
+        <div id="puzzle-container"></div>
+     
+        <button id="ver" onclick="shufflePuzzle()">Embaralhar Quebra-Cabeça</button>
+        <button id="emb" onclick="checkIfSolved()">Verificar se foi resolvido</button>
+        <a href="pagina015.html" target="_self"><button id="novoBotao">Continuar</button></a>
+
+    </div>
+
+    <script>
+    function createPuzzle() {
+    const container = document.getElementById('puzzle-container');
+    const pieceCount = 36; // Garantindo que sejam 36 peças
+    let pieceId = 1;
+
+    // Garantir que o grid seja 6x6
+    container.style.gridTemplateColumns = "repeat(6, 50px)";
+    container.style.gridTemplateRows = "repeat(6, 50px)";
+
+    // Limpar o contêiner antes de gerar as peças (para evitar peças duplicadas)
+    container.innerHTML = "";
+
+    for (let i = 0; i < pieceCount; i++) {
+        const piece = document.createElement('div');
+        piece.classList.add('puzzle-piece');
+        piece.setAttribute('draggable', true);
+        piece.setAttribute('data-id', pieceId);
+        piece.style.backgroundPosition = `${(i % 6) * -50}px ${(Math.floor(i / 6)) * -50}px`; // Posição da imagem
+        piece.id = `piece${pieceId}`;
+        piece.addEventListener('dragstart', onDragStart);
+        piece.addEventListener('dragover', onDragOver);
+        piece.addEventListener('drop', onDrop);
+        piece.addEventListener('dragend', onDragEnd);
+
+        container.appendChild(piece);
+        pieceId++;
+    }
+}
+
+// Função para embaralhar as peças
+function shufflePuzzle() {
+    const container = document.getElementById('puzzle-container');
+    const pieces = Array.from(container.children);
+    document.getElementById("emb").style.display = "block"
+
+    // Embaralhar as peças aleatoriamente com o algoritmo de Fisher-Yates
+    for (let i = pieces.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        // Trocar as peças
+        container.appendChild(pieces[j]);
+        container.appendChild(pieces[i]);
+    }
+}
+
+// Variáveis para controle do drag-and-drop
+let draggedPiece = null;
+let targetPiece = null; // A peça onde o usuário solta a peça
+
+// Função que é chamada quando o usuário começa a arrastar uma peça
+function onDragStart(event) {
+    draggedPiece = event.target;
+    setTimeout(() => {
+        draggedPiece.style.opacity = '0.5';
+    }, 0);
+}
+
+// Função chamada durante o processo de arrasto para permitir o drop
+function onDragOver(event) {
+    event.preventDefault();
+}
+
+// Função chamada quando a peça é solta
+function onDrop(event) {
+    event.preventDefault();
+    targetPiece = event.target;
+    
+    // Verificar se o alvo do drop é uma peça válida
+    if (targetPiece && targetPiece.classList.contains('puzzle-piece') && draggedPiece !== targetPiece) {
+        // Trocar a posição das peças fisicamente no DOM
+        const draggedId = draggedPiece.getAttribute('data-id');
+        const targetId = targetPiece.getAttribute('data-id');
+        
+        // Trocar as posições no DOM
+        const draggedBackground = draggedPiece.style.backgroundPosition;
+        draggedPiece.style.backgroundPosition = targetPiece.style.backgroundPosition;
+        targetPiece.style.backgroundPosition = draggedBackground;
+
+        // Trocar os IDs das peças para que o estado seja consistente
+        draggedPiece.setAttribute('data-id', targetId);
+        targetPiece.setAttribute('data-id', draggedId);
+    }
+
+    draggedPiece.style.opacity = '1';
+}
+
+// Função chamada quando o drag é finalizado
+function onDragEnd(event) {
+    draggedPiece.style.opacity = '1';
+}
+
+// Função para verificar se o quebra-cabeça foi resolvido
+function checkIfSolved() {
+    const pieces = Array.from(document.querySelectorAll('.puzzle-piece'));
+    let solved = true;
+
+    pieces.forEach((piece, index) => {
+        const expectedPosition = `${(index % 6) * -50}px ${(Math.floor(index / 6)) * -50}px`;
+        if (piece.style.backgroundPosition !== expectedPosition) {
+            solved = false;
+        }
+    });
+
+    if (solved) {
+        alert('Parabéns! Olha nós a 1 ano atrás, que gracinha!');
+
+        document.getElementById("novoBotao").style.display = "block";
+    } else {
+        alert('Ainda não está resolvido. Continue tentando!');
+        document.getElementById("novoBotao").style.display = "none";
+    }
+}
+
+// Chamar a função de criação do quebra-cabeça ao carregar a página
+window.onload = createPuzzle;
+
+        </script>
+</body>
+</html>
